@@ -9,22 +9,22 @@ h1{
 hr{
   color: var(--main-red);
   text-align:center;
-  max-width: 300px;
+  max-width: 100%;
   box-shadow: 8px 5px 2px rgba(0,0,0,0.3);
 }
 
-.menu-layout{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+hr.short{
+  max-width: 300px;
 }
-.menu-layout div{
-  width: 500px;
-  margin-left: 10px;
-  margin-right: 10px;
+
+.content-container{
+  margin: 0 auto;
+  max-width: 800px;
 }
-.menu-layout div hr{
-  max-width: 100%;
+
+.navigation-container{
+  margin: 0 auto;
+  max-width: 400px;
 }
 
 footer p{

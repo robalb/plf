@@ -1,4 +1,5 @@
 <?php
+  //TODO: add token based auth
  header("location: menu.php");
  die();
  
@@ -23,7 +24,6 @@
     <meta name="language" content="it">
     <title>premiata libreria della nonna</title>
     <meta name="description" content="Premiata libreria della nonna" />
-    <link rel="canonical" href="https://halb.it/pln/"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 

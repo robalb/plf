@@ -18,16 +18,16 @@
     <meta name="language" content="it">
     <title>premiata libreria della nonna</title>
     <meta name="description" content="Premiata libreria della nonna - menu di selezione" />
-    <link rel="canonical" href="https://halb.it/pln/menu/"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="keywords" content="pln - menu" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
   </head>
   <body>
     <h1>menu principale / retrobottega</h1>
-    <hr/>
+    <hr class="short" />
     <div class="menu-layout">
 
       <div>
@@ -58,7 +58,7 @@
 
     <footer>
       <p>Libreria privata testo footer etch etch<br> Copyright 2021 </p>
-    </footer
+    </footer>
 
 
   </body>
