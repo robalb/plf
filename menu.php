@@ -28,33 +28,31 @@
   <body>
     <h1>menu principale / retrobottega</h1>
     <hr class="short" />
-    <div class="menu-layout">
 
-      <div>
+      <div class="nav-container">
         <h2><a href="catalogo.php">aggiorna il catalogo</a></h2>
         <p>aggiungi libri o modifica i dati di quelli esistenti</p>
         <hr/>
       </div>
 
-      <div>
+      <div class="nav-container">
         <h2><a href="ricerca.php">ricerca</a></h2>
         <p>esegui una ricerca all'interno della biblioteca</p>
         <hr/>
       </div>
 
-      <div>
+      <div class="nav-container">
         <h2><a href="prestiti.php">gestione prestiti</a></h2>
         <p>segna un libro come prestato o restituito, o visualizza tutti i libri prestati</p>
         <hr/>
       </div>
 
-      <div>
+      <div class="nav-container">
         <h2><a href="impostazioni.php">impostazioni avanzate</a></h2>
         <p>gestisci impostazioni che non rientrano nelle altre categorie</p>
         <hr/>
       </div>
 
-    </div>
 
     <footer>
       <p>Libreria privata testo footer etch etch<br> Copyright 2021 </p>

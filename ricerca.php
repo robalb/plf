@@ -26,11 +26,15 @@
     <link rel="stylesheet" type="text/css" href="css/ricerca.css">
   </head>
   <body>
-    <h1>ricerca</h1>
-    <div class="navigation-container">
-      <h2><a href="index.php">menu principale</a></h2>
-      <hr/>
-    </div>
+    <header>
+      <div class="nav-container">
+        <div>
+          <h1>ricerca</h1>
+          <h2><a href="index.php">menu principale</a></h2>
+        </div>
+        <hr/>
+      </div>
+    </header>
 
 
   </body>
