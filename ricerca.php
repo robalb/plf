@@ -24,6 +24,13 @@
     <meta name="keywords" content="pln - menu" />
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/ricerca.css">
+    <link rel="stylesheet" type="text/css" href="static-bundles/tabulator/dist/css/tabulator_semantic-ui.min.css">
+
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/tabulator_core.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/responsive_layout.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/resize_table.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/resize_columns.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/page.min.js"></script>
   </head>
   <body>
     <header>
@@ -35,8 +42,12 @@
         <hr/>
       </div>
     </header>
+    <main>
+      <div id="table">caricamento...</div>
+    </main>
 
 
+    <script type="text/javascript" src="js/common.js"></script>
   </body>
 </html>
 
