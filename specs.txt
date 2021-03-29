@@ -1,0 +1,26 @@
+
+backend:
+3 endpoint api:
+-cerca
+-inserisci
+  (deve restituire anche risultati simili a libro inserito)
+-rimuovi
+-modifica
+  (modifica può essere aggiunto in futuro)
+
+tabella db:
+titolo
+autore
+casa editrice
+argomento
+note
+ID (primary key)
+
+
+cose utili per frontend
+https://openlibrary.org/dev/docs/api/covers
+https://openlibrary.org/dev/docs/api/search
+
+https://gridjs.io/docs/server-side
+
+https://codepen.io/hamadjaved69/details/ExyzByq

@@ -31,6 +31,9 @@
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/resize_table.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/resize_columns.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/page.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/sort.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/filter.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/edit.min.js"></script>
   </head>
   <body>
     <header>
