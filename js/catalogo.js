@@ -29,10 +29,28 @@ function update(endpoint, data){
 
 }
 
+function $(id){
+ return document.getElementById(id)
+}
+document.getElementById("send").addEventListener("click", addRow)
 
 function addRow(){
-  var row = {id:4, titolo: "i promessi topi", autore:"romano scarpa", casa_ed:"disney", argomento:"fumetto", note: ""};
+  var computedId = 0 //TODO
+  var row = {
+    id: computedId,
+    titolo: $("titolo").value,
+    autore: $("autore").value,
+    casa_ed: $("casa_ed").value,
+    argomento: $("argomento").value,
+    note: $("note").value,
+  }
   window.table.addRow(row, true);
+
+    $("titolo").value = ""
+    $("autore").value = ""
+    $("casa_ed").value = ""
+    $("argomento").value = ""
+    $("note").value = ""
 }
 
 //TODO: ajax load everything, and add headerfilter parameters to the data

@@ -1,6 +1,12 @@
+*:focus{
+  outline: 2px solid #FFBF00;
+  /* outline: 2px solid red; */
+}
 body{
   --main-red: #ef4c14;
 }
+
+  
 h1{
   text-align:center;
   color: var(--main-red);
@@ -43,4 +49,19 @@ footer p{
   margin-top: 30px;
   text-align:center;
   margin-bottom: 10px;
+}
+
+form button{
+  cursor: pointer;
+  padding: 10px;
+  background-color: var(--main-red);
+  color: white;
+  font-family: Times New Roman;
+  font-size: 1.2em;
+  border: 0;
+  box-shadow: 8px 5px 2px rgba(0,0,0,0.3);
+}
+form button:active{
+  box-shadow: 4px 2px 2px rgba(0,0,0,0.3);
+
 }

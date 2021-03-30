@@ -41,7 +41,7 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
 
     <meta name="keywords" content="pln - menu" />
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/ricerca.css">
+    <link rel="stylesheet" type="text/css" href="css/catalogo.css">
     <link rel="stylesheet" type="text/css" href="static-bundles/tabulator/dist/css/tabulator_semantic-ui.min.css">
 
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/tabulator_core.min.js"></script>
@@ -65,6 +65,17 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
       </div>
     </header>
     <main>
+      <div>
+<form >
+<input type="text" name="id" hidden="true" id="id"/>
+<input type="text" name="titolo" id="titolo" placeholder="titolo"/>
+<input type="text" name="autore" id="autore" placeholder="autore"/>
+<input type="text" name="casa_ed" id="casa_ed" placeholder="casa editrice"/>
+<input type="text" name="argomento" id="argomento" placeholder="argomento"/>
+<input placeholder="note opzionali" id="note" name="note">
+<button type="button" id="send">aggiungi</button>
+</form>
+      </div>
       <div id="table">caricamento...</div>
     </main>
 
