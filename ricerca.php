@@ -1,3 +1,21 @@
+<?php
+require_once 'core/classes/BundlesManager.php';
+require_once 'core/classes/lib.php';
+
+$bundlesManager = new BundlesManager();
+
+//dati ottenuti dalla libreria di tom
+$books = new books();
+$tableData = $books->list();
+
+$jsGlobalVariables = [
+  /* 'PHP_CSRF' => CSRFmanager::getToken(), */
+  'PHP_GLOBALS' => [ 
+    'table' => $tableData
+  ]
+];
+$bundlesManager->injectJavascriptVariables($jsGlobalVariables);
+?>
 <!DOCTYPE html>
 <!--[if IE 6]>
 <html id="ie6" lang="it">
@@ -34,6 +52,7 @@
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/sort.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/filter.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/edit.min.js"></script>
+        <?php $bundlesManager->headOutput();?>
   </head>
   <body>
     <header>
@@ -51,6 +70,8 @@
 
 
     <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/ricerca.js"></script>
+        <?php $bundlesManager->bodyOutput();?>
   </body>
 </html>
 
