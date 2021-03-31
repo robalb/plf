@@ -1,6 +1,6 @@
 form{
   margin-top: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   background-color: #f9fafb;
   border: 1px solid #dedede;
   border-radius: 5px;
@@ -15,7 +15,25 @@ form input{
   height: 30px;
   padding-left: 10px;
 }
-form button{
+
+.selectedmenu{
+  /* background-color: #9abcea; */
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  height: 30px;
+  opacity: 1;
+  transition: all 0.3s;
+}
+.selectedmenu button{
+  height: 35px;
+  margin-left: 20px;
 }
 
-
+.selectedmenu.hidden{
+  visibility: hidden;
+  /* transform: translateX("10px"); */
+  padding-left: 20px;
+  opacity: 0;
+}

@@ -34,10 +34,18 @@ function $(id){
  return document.getElementById(id)
 }
 
+var biggestID = 0;
+if(tabledata.length > 0)
+  biggestID = tabledata[tabledata.length-1].id
+// for(var row in tabledata){
+//   if()
+// }
+
 var form = document.getElementById("addform")
 form.addEventListener("submit", addRow)
 function addRow(e){
-  var computedId = 0 //TODO
+  biggestID ++;
+  var computedId = biggestID;
   var row = {
     id: computedId,
     titolo: $("titolo").value,
@@ -51,11 +59,36 @@ function addRow(e){
   e.preventDefault();
 }
 
+var selectedRows = [];
+function manageSelection(data, rows){
+  selectedRows = rows;
+  if(data.length > 0){
+    //make ui visible
+    $("selectmenu").classList.remove("hidden")
+    $("countview").innerText = data.length
+  }
+  else{
+    //hide ui
+    $("selectmenu").classList.add("hidden")
+  }
+}
+
+$("delete").addEventListener("click", deleteRows)
+function deleteRows(){
+  for(row of selectedRows){
+    row.delete()
+  }
+  selectedRows = [];
+  manageSelection([],[]);
+}
+
 //TODO: ajax load everything, and add headerfilter parameters to the data
 //initialize table
 var table = new Tabulator("#table", {
   data:tabledata, //assign data to table
   // autoColumns:true, //create columns from data field names
+
+  selectable:true,
 
   pagination:"local",
   paginationSize:12,
@@ -67,10 +100,10 @@ var table = new Tabulator("#table", {
 
   columns:[
     {title:"ID", field:"id", width: "60", sorter:"number"},
-    {title:"Titolo", field:"titolo", sorter:"string", headerFilter:true, editor:"input"},
-    {title:"Autore", field:"autore", sorter:"string", headerFilter: true, editor:"input"},
-    {title:"Casa editrice", field:"casa_ed", sorter:"string",headerFilter:true, editor:"input"},
-    {title:"Argomento", field:"argomento", sorter:"string",headerFilter:true , editor:"input"},
+    {title:"Titolo", field:"titolo", sorter:"string", headerFilter:true, editor:"input", validator:"required"},
+    {title:"Autore", field:"autore", sorter:"string", headerFilter: true, editor:"input", validator:"required"},
+    {title:"Casa editrice", field:"casa_ed", sorter:"string",headerFilter:true, editor:"input", validator:"required"},
+    {title:"Argomento", field:"argomento", sorter:"string",headerFilter:true , editor:"input", validator:"required"},
     {title:"Note", field:"note", sorter:"string",headerFilter:true, editor:"input"},
   ],
 
@@ -86,6 +119,7 @@ var table = new Tabulator("#table", {
     console.log(row.getData())
     update("add",row.getData())
   },
+      rowSelectionChanged: manageSelection,
 
   placeholder:"Non hai ancora aggiunto nessun libro!",
   locale: "it-it",

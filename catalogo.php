@@ -52,6 +52,8 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/sort.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/filter.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/edit.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/validate.min.js"></script>
+    <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/select_row.min.js"></script>
         <?php $bundlesManager->headOutput();?>
   </head>
   <body>
@@ -65,7 +67,6 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
       </div>
     </header>
     <main>
-      <div>
 <form method="POST" action="api/add.php" id="addform">
 <input type="text" name="id" hidden="true" id="id"/>
 <input type="text" required name="titolo" id="titolo" placeholder="titolo"/>
@@ -75,7 +76,11 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
 <input placeholder="note opzionali" id="note" name="note">
 <button type="submit" id="send">aggiungi</button>
 </form>
-      </div>
+
+<div id="selectmenu" class="selectedmenu hidden">
+<h3>righe selezionate: <span id="countview">0</span> </h3>
+<button id="delete">elimina righe</button>
+</div>
       <div id="table">caricamento...</div>
     </main>
 

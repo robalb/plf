@@ -51,7 +51,7 @@ footer p{
   margin-bottom: 10px;
 }
 
-form button{
+form button, .selectedmenu button{
   cursor: pointer;
   padding: 6px;
   background-color: var(--main-red);
