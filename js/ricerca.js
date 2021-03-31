@@ -37,6 +37,7 @@ var tabl = new Tabulator("#table", {
      ],
 
 
+      placeholder:"Non hai ancora aggiunto nessun libro!",
      locale: "it-it",
      langs: {
        "it-it": {

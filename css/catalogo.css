@@ -1,6 +1,21 @@
 form{
   margin-top: 60px;
   margin-bottom: 60px;
+  background-color: #f9fafb;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form input{
+  flex-grow: 4;
+  margin: 5px 10px 5px 10px;
+  height: 30px;
+  padding-left: 10px;
+}
+form button{
 }
 
 

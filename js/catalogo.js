@@ -1,6 +1,7 @@
 
 
 
+//if the data gets too big, consider ajax loading
 var tabledata = []
 if(window.PHP_GLOBALS && window.PHP_GLOBALS.table){
   tabledata = window.PHP_GLOBALS.table
@@ -32,9 +33,10 @@ function update(endpoint, data){
 function $(id){
  return document.getElementById(id)
 }
-document.getElementById("send").addEventListener("click", addRow)
 
-function addRow(){
+var form = document.getElementById("addform")
+form.addEventListener("submit", addRow)
+function addRow(e){
   var computedId = 0 //TODO
   var row = {
     id: computedId,
@@ -45,12 +47,8 @@ function addRow(){
     note: $("note").value,
   }
   window.table.addRow(row, true);
-
-    $("titolo").value = ""
-    $("autore").value = ""
-    $("casa_ed").value = ""
-    $("argomento").value = ""
-    $("note").value = ""
+  form.reset()
+  e.preventDefault();
 }
 
 //TODO: ajax load everything, and add headerfilter parameters to the data
@@ -68,13 +66,6 @@ var table = new Tabulator("#table", {
   responsiveLayout:"collapse",
 
   columns:[
-    // {title:"ID", field:"id", hozAlign:"center", sorter:"date",  headerFilter:"input"},
-    // {title:"Titolo", field:"titolo", width:150, headerFilter:"input"},
-    // {title:"Autore", field:"autore", width:150, formatter:"progress", sorter:"number", headerFilter:minMaxFilterEditor, headerFilterFunc:minMaxFilterFunction, headerFilterLiveFilter:false},
-    // {title:"Casa editrice", field:"casa_ed", editor:"select", editorParams:{values:{"male":"Male", "female":"Female"}}, headerFilter:true, headerFilterParams:{values:{"male":"Male", "female":"Female", "":""}}},
-    // {title:"Argomento", field:"argomento", editor:"star", hozAlign:"center", width:100, headerFilter:"number", headerFilterPlaceholder:"at least...", headerFilterFunc:">="},
-    // {title:"Note", field:"note", editor:"input", headerFilter:"select", headerFilterParams:{values:true}},
-
     {title:"ID", field:"id", width: "60", sorter:"number"},
     {title:"Titolo", field:"titolo", sorter:"string", headerFilter:true, editor:"input"},
     {title:"Autore", field:"autore", sorter:"string", headerFilter: true, editor:"input"},
@@ -96,7 +87,7 @@ var table = new Tabulator("#table", {
     update("add",row.getData())
   },
 
-
+  placeholder:"Non hai ancora aggiunto nessun libro!",
   locale: "it-it",
   langs: {
     "it-it": {

@@ -53,7 +53,7 @@ footer p{
 
 form button{
   cursor: pointer;
-  padding: 10px;
+  padding: 6px;
   background-color: var(--main-red);
   color: white;
   font-family: Times New Roman;

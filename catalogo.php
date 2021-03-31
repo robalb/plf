@@ -66,14 +66,14 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
     </header>
     <main>
       <div>
-<form >
+<form method="POST" action="api/add.php" id="addform">
 <input type="text" name="id" hidden="true" id="id"/>
-<input type="text" name="titolo" id="titolo" placeholder="titolo"/>
-<input type="text" name="autore" id="autore" placeholder="autore"/>
-<input type="text" name="casa_ed" id="casa_ed" placeholder="casa editrice"/>
-<input type="text" name="argomento" id="argomento" placeholder="argomento"/>
+<input type="text" required name="titolo" id="titolo" placeholder="titolo"/>
+<input type="text" required name="autore" id="autore" placeholder="autore"/>
+<input type="text" required name="casa_ed" id="casa_ed" placeholder="casa editrice"/>
+<input type="text" required name="argomento" id="argomento" placeholder="argomento"/>
 <input placeholder="note opzionali" id="note" name="note">
-<button type="button" id="send">aggiungi</button>
+<button type="submit" id="send">aggiungi</button>
 </form>
       </div>
       <div id="table">caricamento...</div>
