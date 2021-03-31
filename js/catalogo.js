@@ -97,7 +97,7 @@ function manageSelection(data, rows){
 var table = new Tabulator("#table", {
   data:tabledata, //assign data to table
 
-  selectable:true,
+  // selectable:true,
 
   pagination:"local",
   paginationSize:12,
@@ -108,7 +108,10 @@ var table = new Tabulator("#table", {
   responsiveLayout:"collapse",
 
   columns:[
-    {title:"ID", field:"id", width: "60", sorter:"number"},
+          {formatter:"rowSelection", titleFormatter:"rowSelection", width: 20, hozAlign:"center", headerSort:false, cellClick:function(e, cell){
+                    cell.getRow().toggleSelect();
+                          }},
+    {title:"ID", field:"id", width: "80", sorter:"number"},
     {title:"Titolo", field:"titolo", sorter:"string", headerFilter:true, editor:"input", validator:"required"},
     {title:"Autore", field:"autore", sorter:"string", headerFilter: true, editor:"input", validator:"required"},
     {title:"Casa editrice", field:"casa_ed", sorter:"string",headerFilter:true, editor:"input", validator:"required"},
