@@ -69,7 +69,7 @@ function addRow(e){
 $("delete").addEventListener("click", deleteRows)
 function deleteRows(){
   for(row of selectedRows){
-    var idCell = row.getCells()[0].getValue()
+    var idCell = row.getCell("id").getValue()
     update("remove", {id: idCell})
     row.delete()
   }

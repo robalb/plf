@@ -4,7 +4,7 @@ require_once(__DIR__ ."/../core/classes/lib.php");
 $books = new books();
 
 // Controllo mancanza parametri necessari
-if(isset($_POST["id"])==false){
+if(!isset($_POST["id"]) || !filter_var($_POST["id"], FILTER_VALIDATE_INT) ){
     $books->error("params", "Errore interno: impossibile eliminare il libro selezionato. (Campo ID mancante)");
 }
 

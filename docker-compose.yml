@@ -24,6 +24,7 @@ services:
       MARIADB_DATABASE: ${PLF_DATABASE}
     working_dir: /var/www/php
     volumes:
+      - ./.docker/php/phpSettings.conf:/usr/local/etc/php-fpm.d/zzz-phpSettings.conf
       - ./src:/var/www/php
     depends_on:
       - mariadb
