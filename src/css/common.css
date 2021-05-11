@@ -1,3 +1,5 @@
+
+/* ========== animated tabnavigation outline ======== */
 @media (prefers-reduced-motion: no-preference){
   *:focus{
     transition: outline-offset .25s ease;
@@ -6,7 +8,6 @@
 }
 *:focus{
   outline: 2px solid #FFBF00;
-  /* outline: 2px solid red; */
 }
 body.using-mouse :focus {
   outline: none;
@@ -14,6 +15,7 @@ body.using-mouse :focus {
 body.using-mouse *:focus {
   outline: none;
 }
+
 body{
   --main-red: #ef4c14;
 }

@@ -108,10 +108,11 @@ var table = new Tabulator("#table", {
   responsiveLayout:"collapse",
 
   columns:[
-          {formatter:"rowSelection", titleFormatter:"rowSelection", width: 20, hozAlign:"center", headerSort:false, cellClick:function(e, cell){
-                    cell.getRow().toggleSelect();
-                          }},
-    {title:"ID", field:"id", width: "80", sorter:"number"},
+    {title:"ID", field:"id", width: "80", sorter:"number",
+      cellClick:function(e, cell){
+        cell.getRow().toggleSelect();
+      }
+    },
     {title:"Titolo", field:"titolo", sorter:"string", headerFilter:true, editor:"input", validator:"required"},
     {title:"Autore", field:"autore", sorter:"string", headerFilter: true, editor:"input", validator:"required"},
     {title:"Casa editrice", field:"casa_ed", sorter:"string",headerFilter:true, editor:"input", validator:"required"},

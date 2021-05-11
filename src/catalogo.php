@@ -82,6 +82,8 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
 <button id="delete">elimina righe</button>
 </div>
       <div id="table">caricamento...</div>
+      <p>Cliccare sul campo ID di un libo per selezionarlo</p>
+      <p>Cliccare su un qualsiasi altro campo per modificarlo. Premere Invio per salvare le modifiche</p>
     </main>
 
 
