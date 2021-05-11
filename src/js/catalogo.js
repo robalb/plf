@@ -8,7 +8,46 @@ if(window.PHP_GLOBALS && window.PHP_GLOBALS.table){
   tabledata = window.PHP_GLOBALS.table
 }
 
+// https://stackoverflow.com/questions/10473745/compare-strings-javascript-return-of-likely
+// used to recognize similarities in book entries
+function similarity(s1, s2) {
+  var longer = s1;
+  var shorter = s2;
+  if (s1.length < s2.length) {
+    longer = s2;
+    shorter = s1;
+  }
+  var longerLength = longer.length;
+  if (longerLength == 0) {
+    return 1.0;
+  }
+  return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+}function editDistance(s1, s2) {
+  s1 = s1.toLowerCase();
+  s2 = s2.toLowerCase();
 
+  var costs = new Array();
+  for (var i = 0; i <= s1.length; i++) {
+    var lastValue = i;
+    for (var j = 0; j <= s2.length; j++) {
+      if (i == 0)
+        costs[j] = j;
+      else {
+        if (j > 0) {
+          var newValue = costs[j - 1];
+          if (s1.charAt(i - 1) != s2.charAt(j - 1))
+            newValue = Math.min(Math.min(newValue, lastValue),
+              costs[j]) + 1;
+          costs[j - 1] = lastValue;
+          lastValue = newValue;
+        }
+      }
+    }
+    if (i > 0)
+      costs[s2.length] = lastValue;
+  }
+  return costs[s2.length];
+}
 
 /**
  * api endpoint
@@ -49,6 +88,8 @@ var form = document.getElementById("addform")
 //form callback
 form.addEventListener("submit", addRow)
 function addRow(e){
+  e.preventDefault();
+  //prepare the data to insert
   biggestID ++;
   var computedId = biggestID;
   var row = {
@@ -59,10 +100,33 @@ function addRow(e){
     argomento: $("argomento").value,
     note: $("note").value,
   }
-  window.table.addRow(row, true);
-  form.reset()
-  e.preventDefault();
+  //check if the imputted data is too similar to other data in the db
+  var isTooSimilar = false;
+  var similarInTable = window.table.getData('active')
+  if(similarInTable && similarInTable.length > 0){
+    isTooSimilar = similarInTable.some(function(currentRow){
+      return ['titolo', 'autore', 'casa_ed'].every(function(e){
+        return similarity(row[e], currentRow[e]) >= 0.8;
+      })
+    })
+  }
+
+  if(isTooSimilar){
+    alert("questo libro risulta già presente nella raccolta")
+  }
+  else{
+    window.table.addRow(row, true);
+    form.reset()
+  }
+
 }
+
+['titolo', 'autore', 'casa_ed'].forEach(function(field){
+  $(field).addEventListener("change", function(e){
+    console.log(e.target.value)
+    console.log(window.table.setHeaderFilterValue(field, e.target.value));
+  })
+})
 
 
 //delete selected row button callback
@@ -130,7 +194,7 @@ var table = new Tabulator("#table", {
 
   rowSelectionChanged: manageSelection,
 
-  placeholder:"Non hai ancora aggiunto nessun libro!",
+  placeholder:"Nessun libro trovato",
   locale: "it-it",
   langs: {
     "it-it": {
