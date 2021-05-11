@@ -8,6 +8,27 @@ if(window.PHP_GLOBALS && window.PHP_GLOBALS.table){
   tabledata = window.PHP_GLOBALS.table
 }
 
+errMessageTimer = null;
+errMessage = null;
+function errorMessage(text){
+  removeErrMessage();
+  clearTimeout(errMessageTimer)
+  errMessageTimer = setTimeout(removeErrMessage, 5000)
+  errMessage = document.createElement("div")
+  errMessage.className = "message"
+  let myAlert = document.createElement("p");
+  myAlert.setAttribute("role", "alert");
+  let myAlertText = document.createTextNode(text);
+  myAlert.appendChild(myAlertText);
+  errMessage.appendChild(myAlert)
+  document.body.appendChild(errMessage);
+}
+function removeErrMessage(){
+  if(errMessage){
+    errMessage.remove()
+  }
+}
+
 // https://stackoverflow.com/questions/10473745/compare-strings-javascript-return-of-likely
 // used to recognize similarities in book entries
 function similarity(s1, s2) {
@@ -70,6 +91,14 @@ function update(endpoint, data){
   xhr.open("POST", url, true);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send(ret);
+  xhr.addEventListener("load", reqListener);
+  function reqListener () {
+      var resp = (this.responseText);
+      if(!resp || resp.length == 0){
+        errorMessage("Cè stato un problema durante il salvataggio dell'ultimo dato")
+      }
+      //else if(resp)
+  }
 }
 
 /**
