@@ -55,10 +55,11 @@
 
 
     <footer>
-      <p>Libreria privata testo footer etch etch<br> Copyright 2021 </p>
+      <p>Software per la gestione di cataloghi multimediali privati<br> Copyright 2021 </p>
     </footer>
 
 
+    <script type="text/javascript" src="js/common.js"></script>
   </body>
 </html>
 

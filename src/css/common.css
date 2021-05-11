@@ -1,6 +1,18 @@
+@media (prefers-reduced-motion: no-preference){
+  *:focus{
+    transition: outline-offset .25s ease;
+    outline-offset: 2px;
+  }
+}
 *:focus{
   outline: 2px solid #FFBF00;
   /* outline: 2px solid red; */
+}
+body.using-mouse :focus {
+  outline: none;
+}
+body.using-mouse *:focus {
+  outline: none;
 }
 body{
   --main-red: #ef4c14;
