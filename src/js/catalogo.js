@@ -97,6 +97,13 @@ function update(endpoint, data){
       if(!resp || resp.length == 0){
         errorMessage("Cè stato un problema durante il salvataggio dell'ultimo dato")
       }
+      else{
+        var respObj = JSON.parse(resp)
+        console.log(respObj)
+        if(respObj && respObj.ok==false){
+          errorMessage(respObj.msg || "Errore interno")
+        }
+      }
       //else if(resp)
   }
 }
