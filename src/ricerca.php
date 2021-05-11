@@ -44,6 +44,7 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
     <link rel="stylesheet" type="text/css" href="css/ricerca.css">
     <link rel="stylesheet" type="text/css" href="static-bundles/tabulator/dist/css/tabulator_semantic-ui.min.css">
 
+    <!-- we already have a js bundler at home. The js bundler at home: -->
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/tabulator_core.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/responsive_layout.min.js"></script>
     <script type="text/javascript" src="static-bundles/tabulator/dist/js/modules/resize_table.min.js"></script>
@@ -69,8 +70,8 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
     </main>
 
 
-    <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/ricerca.js"></script>
+    <script type="text/javascript" src="js/common.js?1"></script>
+    <script type="text/javascript" src="js/ricerca.js?1"></script>
         <?php $bundlesManager->bodyOutput();?>
   </body>
 </html>

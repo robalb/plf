@@ -87,8 +87,8 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
     </main>
 
 
-    <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/catalogo.js"></script>
+    <script type="text/javascript" src="js/common.js?1"></script>
+    <script type="text/javascript" src="js/catalogo.js?1"></script>
         <?php $bundlesManager->bodyOutput();?>
   </body>
 </html>
