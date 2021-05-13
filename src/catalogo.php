@@ -73,6 +73,7 @@ $bundlesManager->injectJavascriptVariables($jsGlobalVariables);
 <input type="text" required name="autore" id="autore" placeholder="autore"/>
 <input type="text" required name="casa_ed" id="casa_ed" placeholder="casa editrice"/>
 <input type="text" required name="argomento" id="argomento" placeholder="argomento"/>
+<input type="text" required name="posizione" id="posizione" placeholder="posizione"/>
 <input placeholder="note opzionali" id="note" name="note">
 <button type="submit" id="send">aggiungi</button>
 </form>

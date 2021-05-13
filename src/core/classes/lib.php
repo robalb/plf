@@ -5,11 +5,11 @@ $pdo = $instance->getConnection();
 
 class books{
     // Aggiunge un libro alla lista
-    public function add($titolo, $autore, $casa_ed, $argomento, $note){
+    public function add($titolo, $autore, $casa_ed, $argomento, $posizione, $note){
         global $pdo;
-        $query = $pdo->prepare("INSERT INTO `list` (`titolo`,`autore`,`casa_ed`,`argomento`,`note`,`data_aggiunta`,`data_modifica`) VALUES(?, ?, ?, ?, ?, ?, ?)");
+        $query = $pdo->prepare("INSERT INTO `list` (`titolo`,`autore`,`casa_ed`,`argomento`,`posizione`,`note`,`data_aggiunta`,`data_modifica`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
         $status = $query->execute([
-            $titolo, $autore, $casa_ed, $argomento, $note, time(), time()
+            $titolo, $autore, $casa_ed, $argomento, $posizione, $note, time(), time()
         ]);
         // Return ID or false if failed
         if($status){
@@ -22,13 +22,14 @@ class books{
     // Aggiorna un libro dato l'id e l'array di update
     public function update($id, $update=[]){
         global $pdo;
-        $query = $pdo->prepare("UPDATE `list` SET `data_modifica`=?, `titolo`=?, `autore`=?, `casa_ed`=?, `argomento`=?, `note`=? WHERE `id`=?");
+        $query = $pdo->prepare("UPDATE `list` SET `data_modifica`=?, `titolo`=?, `autore`=?, `casa_ed`=?, `argomento`=?, `posizione`=?, `note`=? WHERE `id`=?");
         return $query->execute([
             time(),
             $update["titolo"],
             $update["autore"],
             $update["casa_ed"],
             $update["argomento"],
+            $update["posizione"],
             $update["note"],
             $id
         ]);
@@ -44,7 +45,7 @@ class books{
     // Ottiene la lista di tutti i libri
     public function list(){
         global $pdo;
-        $query = $pdo->prepare("SELECT `id`, `titolo`, `autore`, `casa_ed`, `argomento`, `note` FROM `list`");
+        $query = $pdo->prepare("SELECT `id`, `titolo`, `autore`, `casa_ed`, `argomento`, `posizione`, `note` FROM `list`");
         if($query->execute([])===false) return false;
         if ($query->rowCount() > 0) {
             return $query->fetchAll();

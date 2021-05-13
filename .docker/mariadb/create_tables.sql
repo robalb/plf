@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `list` (
   `autore` varchar(512) DEFAULT NULL,
   `casa_ed` varchar(512) DEFAULT NULL,
   `argomento` varchar(512) DEFAULT NULL,
+  `posizione` varchar(512) DEFAULT NULL,
   `note` varchar(4096) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`),

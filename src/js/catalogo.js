@@ -134,6 +134,7 @@ function addRow(e){
     autore: $("autore").value,
     casa_ed: $("casa_ed").value,
     argomento: $("argomento").value,
+    posizione: $("posizione").value,
     note: $("note").value,
   }
   //check if the imputted data is too similar to other data in the db
@@ -159,8 +160,7 @@ function addRow(e){
 
 ['titolo', 'autore', 'casa_ed'].forEach(function(field){
   $(field).addEventListener("change", function(e){
-    console.log(e.target.value)
-    console.log(window.table.setHeaderFilterValue(field, e.target.value));
+    window.table.setHeaderFilterValue(field, e.target.value);
   })
 })
 
@@ -217,6 +217,7 @@ var table = new Tabulator("#table", {
     {title:"Autore", field:"autore", sorter:"string", headerFilter: true, editor:"input", validator:"required"},
     {title:"Casa editrice", field:"casa_ed", sorter:"string",headerFilter:true, editor:"input", validator:"required"},
     {title:"Argomento", field:"argomento", sorter:"string",headerFilter:true , editor:"input", validator:"required"},
+    {title:"Posizione", field:"posizione", sorter:"string",headerFilter:true , editor:"input", validator:"required"},
     {title:"Note", field:"note", sorter:"string",headerFilter:true, editor:"input"},
   ],
 
@@ -265,6 +266,7 @@ var table = new Tabulator("#table", {
           "autore":"filtra per autore", //replace default header filter text for column name
           "casa_ed":"filtra per casa editrice", //replace default header filter text for column name
           "argomento":"filtra per argomento", //replace default header filter text for column name
+          "posizione":"filtra per posizione", //replace default header filter text for column name
           "note":"cerca nelle annotazioni", //replace default header filter text for column name
         }
       }
